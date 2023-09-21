@@ -8,11 +8,18 @@ export default {
         primaryRed: '#E31221',
         primaryBrown: '#DDCCAA',
         primaryBlack: '#11101A',
+        neutralBlack: '#24222F',
+        neutralGray: '#D9D9D9',
+        darkGray: '#6C757D',
       },
       colors: {
         primaryWhite: '#FFFFFF',
         primaryRed: '#E31221',
         primaryBlack: '#11101A',
+        primaryBrown: '#DDCCAA',
+        neutralBlack: '#24222F',
+        neutralGray: '#D9D9D9',
+        darkGray: '#6C757D',
       },
       backgroundImage: () => ({
         gradientPrimary:
