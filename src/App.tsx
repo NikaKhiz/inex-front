@@ -1,6 +1,6 @@
 import { TheHeader } from 'src/components';
 import TheFooter from 'src/components/TheFooter';
-import { HomePage } from 'src/pages';
+import { HomePage, LoginPage } from 'src/pages';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <TheHeader />
         <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='login' element={<LoginPage />} />
         </Routes>
         <TheFooter />
       </main>
