@@ -1,4 +1,5 @@
 export * from './header';
+export * from './sidebar';
 export * from './languageDropdown';
 export * from './ui';
 export * from './wrapper';
