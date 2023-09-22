@@ -10,8 +10,7 @@ import { FormData } from './types';
 const RegisterPage = () => {
   const { register, handleSubmit } = useForm<FormData>({
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      username: '',
       email: '',
       password: '',
       passwordConfirmation: '',
@@ -32,7 +31,7 @@ const RegisterPage = () => {
               type='text'
               label='username'
               placeholder='john doe'
-              {...register('firstName')}
+              {...register('username')}
             />
             <FormGroup
               type='text'
