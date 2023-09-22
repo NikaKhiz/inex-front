@@ -6,15 +6,22 @@ import { TheForm } from 'src/components';
 import { FormHeading } from 'src/components';
 import { FormGroup } from 'src/components/formgroup';
 import { FormData } from './types';
+import { singupFormValidationSchema } from 'src/schemas';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const RegisterPage = () => {
-  const { register, handleSubmit } = useForm<FormData>({
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormData>({
     defaultValues: {
       username: '',
       email: '',
       password: '',
       passwordConfirmation: '',
     },
+    resolver: yupResolver(singupFormValidationSchema),
   });
 
   const onSubmit = (data: FormData) => {
@@ -31,24 +38,28 @@ const RegisterPage = () => {
               type='text'
               label='username'
               placeholder='john doe'
+              error={errors.username}
               {...register('username')}
             />
             <FormGroup
               type='text'
               label='email'
               placeholder='enter your email'
+              error={errors.email}
               {...register('email')}
             />
             <FormGroup
               type='password'
               label='password'
               placeholder='enter your password'
+              error={errors.password}
               {...register('password')}
             />
             <FormGroup
               type='password'
               label='confrm password'
               placeholder='confirm password'
+              error={errors.passwordConfirmation}
               {...register('passwordConfirmation')}
             />
             <Button type='filled'>sign in</Button>
