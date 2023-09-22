@@ -6,13 +6,20 @@ import { TheForm } from 'src/components';
 import { FormHeading } from 'src/components';
 import { FormGroup } from 'src/components/formgroup';
 import { FormData } from './types';
+import { loginFormValidationSchema } from 'src/schemas';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const LoginPage = () => {
-  const { register, handleSubmit } = useForm<FormData>({
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormData>({
     defaultValues: {
       email: '',
       password: '',
     },
+    resolver: yupResolver(loginFormValidationSchema),
   });
 
   const onSubmit = (data: FormData) => {
@@ -30,12 +37,14 @@ const LoginPage = () => {
               label='email'
               placeholder='enter your email'
               {...register('email')}
+              error={errors.email}
             />
             <FormGroup
               type='password'
               label='password'
               placeholder='enter your password'
               {...register('password')}
+              error={errors.password}
             />
             <Button type='filled'>sign in</Button>
           </div>
