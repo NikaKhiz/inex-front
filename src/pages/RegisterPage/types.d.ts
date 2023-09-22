@@ -1,6 +1,5 @@
 export type FormData = {
-  firstName: string;
-  lastName: string;
+  username: string;
   email: string;
   password: string;
   passwordConfirmation: string;
