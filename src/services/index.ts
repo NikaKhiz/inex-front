@@ -1,2 +1,2 @@
 export * from './axios';
-export { signUp, login } from './api';
+export { signUp, login, getUsers } from './api';
