@@ -9,6 +9,8 @@ import { FormData } from './types';
 import { loginFormValidationSchema } from 'src/schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { login } from 'src/services';
+import { useAuthState, useUserState } from 'src/state';
+import { AxiosResponse } from 'axios';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -25,9 +27,16 @@ const LoginPage = () => {
     resolver: yupResolver(loginFormValidationSchema),
   });
 
+  const updateUser = useUserState((state) => state.updateUser);
+  const updateAccessToken = useAuthState((state) => state.updateAccessToken);
+  const updateAuthStatus = useAuthState((state) => state.updateAuthStatus);
+
   const onSubmit = (data: FormData) => {
     login(data)
-      .then(() => {
+      .then((response: AxiosResponse) => {
+        updateUser(response.data.user);
+        updateAccessToken(response.data['access_token']);
+        updateAuthStatus(true);
         navigate('/dashboard');
       })
       .catch((error) => {
