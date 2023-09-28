@@ -7,8 +7,8 @@ interface AuthType {
   updateAuthStatus: (status: boolean) => void;
 }
 const useAuthState = create<AuthType>((set) => ({
-  accessToken: JSON.parse(localStorage.getItem('accessToken') ?? ''),
-  authStatus: JSON.parse(localStorage.getItem('authStatus') ?? 'false'),
+  accessToken: JSON.parse(localStorage.getItem('accessToken')) ?? '',
+  authStatus: JSON.parse(localStorage.getItem('authStatus')) ?? false,
   updateAccessToken: (token: string) => {
     set(() => ({
       accessToken: token,
