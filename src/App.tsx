@@ -20,8 +20,7 @@ function App() {
         updateUser(response.data.user);
         updateAuthStatus(true);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         updateUser({
           username: '',
           email: '',

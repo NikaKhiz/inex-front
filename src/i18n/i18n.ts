@@ -10,6 +10,7 @@ import {
   REGISTER_KA,
 } from 'src/locales';
 import { initReactI18next } from 'react-i18next';
+import { getCurrentLocale, getFallbackLocale } from 'src/helpers/getLocale';
 
 const resources = {
   en: {
@@ -31,9 +32,9 @@ const resources = {
 };
 
 i18n.use(initReactI18next).init({
-  lng: 'ka',
-  fallbackLng: 'en',
-  debug: true,
+  lng: getCurrentLocale(),
+  fallbackLng: getFallbackLocale(),
+  debug: false,
   interpolation: {
     escapeValue: false,
   },
