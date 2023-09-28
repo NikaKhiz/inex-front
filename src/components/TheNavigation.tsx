@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '.';
 import { useAuthState, useUserState } from 'src/state';
 import { logout } from 'src/services';
+import { useTranslation } from 'react-i18next';
 
 const TheNavigation = (props: { sidebar: boolean }) => {
   const isLoggedIn = useAuthState((state) => state.authStatus);
@@ -10,6 +11,7 @@ const TheNavigation = (props: { sidebar: boolean }) => {
   const updateAccessToken = useAuthState((state) => state.updateAccessToken);
   const updateAuthStatus = useAuthState((state) => state.updateAuthStatus);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const logoutUser = () => {
     logout(accessToken)
@@ -35,15 +37,15 @@ const TheNavigation = (props: { sidebar: boolean }) => {
       {!isLoggedIn ? (
         <>
           <Link to='register'>
-            <Button type='filled'>sign up</Button>
+            <Button type='filled'>{t('navigation.sign_up')}</Button>
           </Link>
           <Link to='login'>
-            <Button type='outline'>log in</Button>
+            <Button type='outline'>{t('navigation.log_in')}</Button>
           </Link>
         </>
       ) : (
         <Button onClick={logoutUser} type='outline'>
-          log out
+          {t('navigation.log_out')}
         </Button>
       )}
     </nav>

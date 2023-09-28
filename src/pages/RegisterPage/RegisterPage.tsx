@@ -9,9 +9,12 @@ import { FormData } from './types';
 import { singupFormValidationSchema } from 'src/schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUp } from 'src/services';
+import { useTranslation } from 'react-i18next';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const {
     register,
     formState: { errors },
@@ -48,42 +51,42 @@ const RegisterPage = () => {
     <TheWrapper>
       <TheForm onSubmit={handleSubmit(onSubmit)}>
         <>
-          <FormHeading title='create a new account' />
+          <FormHeading title={t('register.title')} />
           <div className='flex flex-col gap-4 md:gap-6 text-start'>
             <FormGroup
               type='text'
-              label='username'
-              placeholder='john doe'
+              label={t('register.username')}
+              placeholder={t('register.placeholder_username')}
               error={errors.username}
               {...register('username')}
             />
             <FormGroup
               type='text'
-              label='email'
-              placeholder='enter your email'
+              label={t('register.email')}
+              placeholder={t('register.placeholder_email')}
               error={errors.email}
               {...register('email')}
             />
             <FormGroup
               type='password'
-              label='password'
-              placeholder='enter your password'
+              label={t('register.password')}
+              placeholder={t('register.placeholder_password')}
               error={errors.password}
               {...register('password')}
             />
             <FormGroup
               type='password'
-              label='confrm password'
-              placeholder='confirm password'
+              label={t('register.password_confirmation')}
+              placeholder={t('register.placeholder_password_confirmation')}
               error={errors.passwordConfirmation}
               {...register('passwordConfirmation')}
             />
-            <Button type='filled'>sign in</Button>
+            <Button type='filled'>{t('register.sign_up')}</Button>
           </div>
           <p className='text-sm text-darkGray'>
-            already have an account ?{' '}
+            {t('register.have_account')}{' '}
             <Link to='/login' className='text-darkBlue font-medium'>
-              login
+              {t('register.log_in')}
             </Link>
           </p>
         </>

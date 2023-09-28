@@ -1,0 +1,14 @@
+{
+  "title": "დარეგისტრირდი",
+  "username": "მომხმარებელი",
+  "email": "იმეილი",
+  "password": "პაროლი",
+  "password_confirmation": "პაროლის დადასტურება",
+  "placeholder_username": "მოხმარებლის სახელი",
+  "placeholder_email": "მომხმარებლის იმეილი",
+  "placeholder_password": "მომხმარებლის პაროლი",
+  "placeholder_password_confirmation": "დაადასტურეთ პაროლი",
+  "sign_up": "რეგისტრაცია",
+  "have_account": "უკვე გაქვს ექაუნთი?",
+  "log_in": "ავტორიზაცია"
+}

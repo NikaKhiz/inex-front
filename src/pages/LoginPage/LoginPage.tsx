@@ -11,9 +11,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { login } from 'src/services';
 import { useAuthState, useUserState } from 'src/state';
 import { AxiosResponse } from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const {
     register,
     formState: { errors },
@@ -57,28 +60,28 @@ const LoginPage = () => {
     <TheWrapper>
       <TheForm onSubmit={handleSubmit(onSubmit)}>
         <>
-          <FormHeading title='log in to your account' />
+          <FormHeading title={t('login.title')} />
           <div className='flex flex-col gap-4 md:gap-6 text-start'>
             <FormGroup
               type='text'
-              label='email'
-              placeholder='enter your email'
+              label={t('login.email')}
+              placeholder={t('login.placeholder_email')}
               {...register('email')}
               error={errors.email}
             />
             <FormGroup
               type='password'
-              label='password'
-              placeholder='enter your password'
+              label={t('login.password')}
+              placeholder={t('login.placeholder_password')}
               {...register('password')}
               error={errors.password}
             />
-            <Button type='filled'>sign in</Button>
+            <Button type='filled'>{t('login.log_in')}</Button>
           </div>
           <p className='text-sm text-darkGray'>
-            still dont have an account ?{' '}
+            {t('login.no_account')}{' '}
             <Link to='/register' className='text-darkBlue font-medium'>
-              register now
+              {t('login.register')}
             </Link>
           </p>
         </>
