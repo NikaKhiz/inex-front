@@ -1,0 +1,10 @@
+{
+  "title": "სისტემაში შესვლა",
+  "email": "მეილი",
+  "password": "პაროლი",
+  "log_in": "ავტორიცაზია",
+  "no_account": "არ გაქვს ექაუნთი ?",
+  "register": "დარეგისტრირდი",
+  "placeholder_email": "შეიყვანე მეილი",
+  "placeholder_password": "შეიყვანე პაროლი"
+}

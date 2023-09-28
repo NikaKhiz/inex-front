@@ -3,6 +3,8 @@ import { HOME_EN } from 'src/locales';
 import { HOME_KA } from 'src/locales';
 import { NAVIGATION_EN } from 'src/locales';
 import { NAVIGATION_KA } from 'src/locales';
+import { LOGIN_EN } from 'src/locales';
+import { LOGIN_KA } from 'src/locales';
 import { initReactI18next } from 'react-i18next';
 
 const resources = {
@@ -10,12 +12,14 @@ const resources = {
     translation: {
       home: HOME_EN,
       navigation: NAVIGATION_EN,
+      login: LOGIN_EN,
     },
   },
   ka: {
     translation: {
       home: HOME_KA,
       navigation: NAVIGATION_KA,
+      login: LOGIN_KA,
     },
   },
 };
