@@ -5,8 +5,9 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthLayout, GuestLayout } from 'src/layouts';
 import { getUsers } from 'src/services';
 import { useAuthState, useUserState } from './state';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { AxiosResponse } from 'axios';
+import './i18n';
 
 function App() {
   const updateUser = useUserState((state) => state.updateUser);
@@ -30,20 +31,22 @@ function App() {
   }, []);
 
   return (
-    <main className='min-h-screen bg-gradientPrimary relative'>
-      <TheHeader />
-      <Routes>
-        <Route element={<GuestLayout />}>
-          <Route path='/' element={<HomePage />} />
-          <Route path='login' element={<LoginPage />} />
-          <Route path='register' element={<RegisterPage />} />
-        </Route>
-        <Route element={<AuthLayout />}>
-          <Route path='dashboard' element={<Dashboard />} />
-        </Route>
-      </Routes>
-      <TheFooter />
-    </main>
+    <Suspense fallback='Loading...'>
+      <main className='min-h-screen bg-gradientPrimary relative'>
+        <TheHeader />
+        <Routes>
+          <Route element={<GuestLayout />}>
+            <Route path='/' element={<HomePage />} />
+            <Route path='login' element={<LoginPage />} />
+            <Route path='register' element={<RegisterPage />} />
+          </Route>
+          <Route element={<AuthLayout />}>
+            <Route path='dashboard' element={<Dashboard />} />
+          </Route>
+        </Routes>
+        <TheFooter />
+      </main>
+    </Suspense>
   );
 }
 
