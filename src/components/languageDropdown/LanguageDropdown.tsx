@@ -5,11 +5,12 @@ const availableLocales = ['En', 'Ka'];
 
 const LanguageDropdown = () => {
   const [isLocalesOpen, setIsLocalesOpen] = useState<boolean>(false);
+  const [isBtnClicked, setIsBtnClicked] = useState<boolean>(false);
   const localesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = (e: Event) => {
-      if (!localesRef.current?.contains(e.target as Node)) {
+      if (!localesRef.current?.contains(e.target as Node) && !isBtnClicked) {
         setIsLocalesOpen(false);
       }
     };
@@ -22,7 +23,10 @@ const LanguageDropdown = () => {
     <div className='relative px-1'>
       <button
         className='flex items-center'
-        onClick={() => setIsLocalesOpen(!isLocalesOpen)}
+        onClick={() => {
+          setIsLocalesOpen(!isLocalesOpen);
+          setIsBtnClicked(!isBtnClicked);
+        }}
       >
         <span>En</span>
         {!isLocalesOpen ? <HiChevronDown /> : <HiChevronUp />}
