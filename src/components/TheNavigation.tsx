@@ -42,7 +42,9 @@ const TheNavigation = (props: { sidebar: boolean }) => {
           </Link>
         </>
       ) : (
-        <button onClick={logoutUser}>log out</button>
+        <Button onClick={logoutUser} type='outline'>
+          log out
+        </Button>
       )}
     </nav>
   );
