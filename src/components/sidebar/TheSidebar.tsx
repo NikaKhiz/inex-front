@@ -1,17 +1,10 @@
-import { Link } from 'react-router-dom';
-import { Button } from 'src/components';
 import { HiOutlineX } from 'react-icons/hi';
 import { PropsType } from './types';
 import { useEffect, useRef } from 'react';
-import { useAuthState } from 'src/state';
+import TheNavigation from 'src/components/TheNavigation';
 
 const TheSidebar = ({ toggleSidebar, closeSidebar }: PropsType) => {
   const sidebarRef = useRef<HTMLElement>(null);
-  const isLoggedIn = useAuthState((state) => state.authStatus);
-
-  const logout = () => {
-    console.log('logout');
-  };
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -37,22 +30,7 @@ const TheSidebar = ({ toggleSidebar, closeSidebar }: PropsType) => {
       </div>
       <div className='flex flex-col gap-4 p-4'>
         <p className='font-semibold text-xl capitalize'>inex group</p>
-        <nav className='flex flex-col w-fit gap-4'>
-          {!isLoggedIn ? (
-            <>
-              <Link to='register'>
-                <Button type='filled'>sign up</Button>
-              </Link>
-              <Link to='login'>
-                <Button type='outline'>log in</Button>
-              </Link>
-            </>
-          ) : (
-            <form onSubmit={logout}>
-              <Button type='outline'>log out</Button>
-            </form>
-          )}
-        </nav>
+        <TheNavigation sidebar={true} />
       </div>
     </aside>
   );

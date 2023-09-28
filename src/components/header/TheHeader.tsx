@@ -2,16 +2,12 @@ import { useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { LanguageDropdown } from 'src/components';
-import { Button } from 'src/components';
 import { TheSidebar } from 'src/components';
-import { useAuthState } from 'src/state';
+import TheNavigation from 'src/components/TheNavigation';
+
 const TheHeader = () => {
   const [isSidebar, setIsSidebar] = useState<boolean>(false);
-  const isLoggedIn = useAuthState((state) => state.authStatus);
 
-  const logout = () => {
-    console.log('logout');
-  };
   const toggleSidebar = () => {
     return setIsSidebar(!isSidebar);
   };
@@ -26,22 +22,7 @@ const TheHeader = () => {
       </Link>
       <div className='flex items-center justify-between gap-4'>
         <LanguageDropdown />
-        <nav className='hidden md:flex items-center gap-4'>
-          {!isLoggedIn ? (
-            <>
-              <Link to='register'>
-                <Button type='filled'>sign up</Button>
-              </Link>
-              <Link to='login'>
-                <Button type='outline'>log in</Button>
-              </Link>
-            </>
-          ) : (
-            <form onSubmit={logout}>
-              <Button type='outline'>log out</Button>
-            </form>
-          )}
-        </nav>
+        <TheNavigation sidebar={false} />
         <button
           className='w-6 h-6 block md:hidden'
           onClick={() => setIsSidebar(!isSidebar)}

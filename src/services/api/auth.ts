@@ -26,3 +26,14 @@ export const login = async ({
   });
   return response;
 };
+
+export const logout = async (
+  accesToken: string,
+): Promise<AxiosResponse<string>> => {
+  const response = await axios.get('/api/logout', {
+    headers: {
+      Authorization: `Bearer ${accesToken}`,
+    },
+  });
+  return response;
+};
