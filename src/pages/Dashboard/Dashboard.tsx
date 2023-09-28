@@ -1,19 +1,19 @@
 import { TheWrapper } from 'src/components';
-import { getUsers } from 'src/services';
-import { useAuthState } from 'src/state';
+import { useUserState } from 'src/state';
 
 const Dashboard = () => {
-  const accessToken = useAuthState((state) => state.accessToken);
-  const getUserInfo = () => {
-    getUsers(accessToken)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-  };
+  const username = useUserState((state) => state.username);
+  const email = useUserState((state) => state.email);
   return (
     <TheWrapper>
-      <div className='bg-primaryWhite text-primaryBlack text-2xl text-center'>
-        dashboard
-        <button onClick={getUserInfo}>get user info</button>
+      <div className='bg-neutralBlack  flex flex-col gap-4 p-4 text-primaryBrown  text-center text-xl md:text-3xl capitalize '>
+        <p>
+          welcome, <span className='text-darkBlue'>{username}</span>
+        </p>
+        <p>
+          your current email adress is :{' '}
+          <span className='text-darkBlue'>{email}</span>
+        </p>
       </div>
     </TheWrapper>
   );
