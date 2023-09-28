@@ -6,3 +6,5 @@ export { default as LOGIN_EN } from './en/login.json';
 export { default as LOGIN_KA } from './ka/login.json';
 export { default as REGISTER_EN } from './en/register.json';
 export { default as REGISTER_KA } from './ka/register.json';
+export { default as DASHBOARD_EN } from './en/dashboard.json';
+export { default as DASHBOARD_KA } from './ka/dashboard.json';
