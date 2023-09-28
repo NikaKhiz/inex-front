@@ -4,3 +4,5 @@ export { default as NAVIGATION_EN } from './en/navigation.json';
 export { default as NAVIGATION_KA } from './ka/navigation.json';
 export { default as LOGIN_EN } from './en/login.json';
 export { default as LOGIN_KA } from './ka/login.json';
+export { default as REGISTER_EN } from './en/register.json';
+export { default as REGISTER_KA } from './ka/register.json';

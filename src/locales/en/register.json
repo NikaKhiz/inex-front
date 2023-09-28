@@ -1,0 +1,14 @@
+{
+  "title": "Create A New Account",
+  "username": " username",
+  "email": "email",
+  "password": "password",
+  "password_confirmation": "confirm password",
+  "placeholder_username": "enter username",
+  "placeholder_email": "enter email",
+  "placeholder_password": "enter password",
+  "placeholder_password_confirmation": "confirm password",
+  "sign_up": "sign up",
+  "have_account": "already have an account ?",
+  "log_in": "login"
+}
