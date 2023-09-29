@@ -65,7 +65,9 @@ after that **.env** file will be populated with necessary env variables:
 #
 
 > VITE_BASE_URL = 'http://localhost:8000'
+
 > VITE_I18N_LOCALE= 'en'
+
 > VITE_I18N_FALLBACK_LOCALE= 'en'
 
 ##### Now, you should be good to go!
