@@ -10,6 +10,8 @@ import {
   REGISTER_KA,
   DASHBOARD_EN,
   DASHBOARD_KA,
+  VALIDATION_EN,
+  VALIDATION_KA,
 } from 'src/locales';
 import { initReactI18next } from 'react-i18next';
 import { getCurrentLocale, getFallbackLocale } from 'src/helpers/getLocale';
@@ -22,6 +24,7 @@ const resources = {
       login: LOGIN_EN,
       register: REGISTER_EN,
       dashboard: DASHBOARD_EN,
+      validation: VALIDATION_EN,
     },
   },
   ka: {
@@ -31,6 +34,7 @@ const resources = {
       login: LOGIN_KA,
       register: REGISTER_KA,
       dashboard: DASHBOARD_KA,
+      validation: VALIDATION_KA,
     },
   },
 };

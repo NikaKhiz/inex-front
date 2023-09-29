@@ -1,0 +1,12 @@
+{
+  "email_is_required": "email field is required",
+  "email_must_be_valid": "please provide valid email address",
+  "username_is_required": "username field is required",
+  "username_min_length": "username must be min 6 characters",
+  "username_max_length": "username must be max 15 characters",
+  "password_is_required": "password field is required",
+  "password_min_length": "password field must be min 8 characters",
+  "password_max_length": "password field must be max 20 characters",
+  "password_confirm_is_required": "password confirmation field is required",
+  "password_must_be_matched": "password confirmation must be matched"
+}
