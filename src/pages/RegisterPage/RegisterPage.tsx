@@ -27,7 +27,7 @@ const RegisterPage = () => {
       password: '',
       passwordConfirmation: '',
     },
-    resolver: yupResolver(singupFormValidationSchema),
+    resolver: yupResolver(singupFormValidationSchema(t)),
   });
 
   const onSubmit = (data: FormData) => {
