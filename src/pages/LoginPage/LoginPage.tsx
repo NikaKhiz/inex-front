@@ -27,7 +27,7 @@ const LoginPage = () => {
       email: '',
       password: '',
     },
-    resolver: yupResolver(loginFormValidationSchema),
+    resolver: yupResolver(loginFormValidationSchema(t)),
   });
 
   const updateUser = useUserState((state) => state.updateUser);
